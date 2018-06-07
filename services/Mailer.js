@@ -18,7 +18,7 @@ class Mailer extends helper.Mail {
   }
 
   formatAddresses(recipients) {
-    return recipients.map(( {email }) => {
+    return recipients.map(({ email }) => {
       return new helper.Email(email);
     });
   }
@@ -40,7 +40,7 @@ class Mailer extends helper.Mail {
     this.addPersonalization(personalize);
   }
 
-  async send(){
+  async send() {
     const request = this.sgApi.emptyRequest({
       method: 'POST',
       path: '/v3/mail/send',
@@ -48,9 +48,8 @@ class Mailer extends helper.Mail {
     });
 
     const response = await this.sgApi.API(request);
-    return response
+    return response;
   }
 }
 
 module.exports = Mailer;
-
