@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import SurveyField from './SurveyField'
+import _ from 'lodash';
+
+const FIELDS = [
+  { label: "Survey Title", name: "title" },
+  { label: "Subject Line", name: "subject" },
+  { label: "Email Body", name: "body" },
+  { label: "Recipient List", name: "emails" }
+];
 
 class SurveyForm extends Component {
   renderFields() {
-    return(
-      <div>
-        <Field type="text" name="title" label="Survey Title" component={SurveyField} />
-        <Field type="text" name="subject" label="Subject Line" component={SurveyField} />
-        <Field type="text" name="body" label="Email Body" component={SurveyField} />
-        <Field type="text" name="emails" label="Recipient List" component={SurveyField} />
-      </div>
-    );
+    return _.map(FIELDS, ({ label, name}) => {
+      return <Field key={name} component={SurveyField} type="text" label={label} name={name} />
+    })
   }
 
   render() {
@@ -21,7 +24,11 @@ class SurveyForm extends Component {
 
           {this.renderFields()}
 
-          <button type="submit">Submit</button>
+          <button type="submit" className="teal btn-flat right white-text">
+          Next
+          <i className="material-icons right">done</i>
+          </button>
+          <button type="submit">Cancel</button>
         </form>
       </div>
     );
