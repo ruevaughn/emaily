@@ -29,7 +29,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
       </button>
       <button
         className="green btn-flat white-text right"
-        onClick={() => submitSurvey(formValues)}
+        onClick={() => submitSurvey(formValues, history)}
         >
         Send Survey
         <i className="material-icons right">email</i>
@@ -43,4 +43,4 @@ function mapStateToProps(state) {
   return { formValues: state.form.surveyForm.values };
 }
 
-export default connect(mapStateToProps, actions)(withRouter((SurveyFormReview));
+export default connect(mapStateToProps, actions)(withRouter(SurveyFormReview));
