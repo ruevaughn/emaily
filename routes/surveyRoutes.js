@@ -9,8 +9,10 @@ const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 const Survey = mongoose.model('surveys');
 
 module.exports = app => {
-  app.get('/api/surveys', async (req, res) => {
-    const surverys = await Survey.find({_id: req.user.id})
+  app.get('/api/surveys', requireLogin, async (req, res) => {
+    const surveys = await Survey.find({_id: req.user.id});
+
+    res.send(surveys);
   })
 
   app.get('/api/surveys/:surveyId/:choice', (req, res) => {
