@@ -1,4 +1,4 @@
-Node / React / Redux / Mongodb / Stripe / Oauth Application
+Fully Functional and working Node / React / Redux / Mongodb / Stripe / Oauth Web Application
 
 TODO:
 Test with Jest, decide other testing framework
