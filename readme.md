@@ -1,3 +1,8 @@
+Node / React / Redux / Mongodb / Stripe / Oauth Application
+
+TODO:
+Test with Jest, decide other testing framework
+
 https://stark-refuge-69905.herokuapp.com
 
 Naming convention - if the file exports somethings it is capitalized. So if the file just returns a function it is not capitalized. index.js files do not follow this convention.
